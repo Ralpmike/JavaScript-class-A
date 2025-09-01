@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+      }
+      .hero_header {
+        padding: 15px 20px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1;
+      }
+
+      .hero_header h1 {
+        flex: 2;
+      }
+      .custom__flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav__bar {
+        flex: 1;
+        gap: 10px;
+        font-size: 18px;
+      }
+
+      .toggler {
+        font-size: 20px;
+        /* padding: 5px; */
+        border: none;
+        display: inline-block;
+        cursor: pointer;
+        display: none;
+        /* background-color: none; */
+      }
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 30px;
+        height: 4px;
+        background-color: #333;
+        margin: 4px 0;
+        transition: 0.4s;
+      }
+      .change .bar1 {
+        transform: translate(0, 8px) rotate(-45deg);
+      }
+
+      .change .bar2 {
+        opacity: 0;
+      }
+
+      .change .bar3 {
+        transform: translate(0, -9px) rotate(45deg);
+      }
+
+      @media screen and (max-width: 640px) {
+        .toggler {
+          display: block;
+        }
+
+        .nav__bar {
+          flex-direction: column;
+          justify-content: start;
+          align-items: start;
+          position: absolute;
+          top: 100%;
+          left: -100%;
+          width: 100%;
+          background-color: #fff;
+          padding: 15px 20px;
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+          transition: all 0.8s ease-in-out;
+        }
+
+        .nav__bar li {
+          margin: 10px 0;
+        }
+
+        .nav__bar li a {
+          color: #333;
+        }
+
+        .nav__bar li a:hover {
+          text-decoration: underline;
+        }
+
+        .nav__bar.active {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="custom__flex hero_header">
+      <h1>Raphael</h1>
+
+      <nav class="custom__flex nav__items nav__bar">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </nav>
+      <button aria-label="toggler-button" class="toggler">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </button>
+    </header>
+
+    <section>
+      <div class="bar"></div>
+      <div class="bar_2"></div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
