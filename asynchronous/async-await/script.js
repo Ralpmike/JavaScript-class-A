@@ -1,17 +1,17 @@
 import { getAllAlbums } from "./fetch.js";
 
 function getTodos() {
-  fetch("https://jsonplaceholder.typicode.com/users", {
+  fetch("https://jsonplaceholder.typicode.com/posts/100", {
     method: "GET",
     headers: {
       "content-type": "application/json",
     },
   })
     .then((res) => res.json())
-    .then((data) => console.log(data.slice(0, 10)));
+    .then((data) => console.log(data));
 }
 
-getTodos();
+
 
 
 async function logAllAlbums(){
@@ -39,3 +39,31 @@ function displayAlbums(){
 
 
 displayAlbums()
+
+
+
+//? Make a Post request
+
+function addPost(){
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify({
+      body: "Aaron, Abasifreke, Fidelis",
+      id: 101,
+      title: "Aaron, Abasifreke, Fidelis",
+      userId: 1,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+}
+
+
+
+addPost()
+
+getTodos();
