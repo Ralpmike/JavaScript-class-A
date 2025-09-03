@@ -165,6 +165,12 @@ function getAllProducts() {
 getAllProducts("products");
 
 
-// ? git clone https://github.com/Ralpmike/JavaScript-class-A.git .
+// ? git clone https://github.com/Ralpmike/JavaScript-class-A.git
 
 //? git pull origin master
+
+//? ls
+
+//? cd JavaScript-class-A
+
+//? git pull
