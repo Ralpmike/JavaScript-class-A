@@ -6,9 +6,38 @@
   <title>Asynchronous Javascript</title>
 </head>
 <body>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .products{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 10px;
+    }
+    img{
+      width: 100%;
+    }
+
+    .product{
+      display: flex;
+      flex-direction: column;
+      
+    }
+  </style>
   
+<div class="products">
 
+ 
 
-  <script src="./index.js"></script>
+</div>
+
+<button id="add_product">Add Product</button>
+  <script src="./index.js" type="module"></script>
+  <script src="./script.js" type="module"></script>
 </body>
 </html>
