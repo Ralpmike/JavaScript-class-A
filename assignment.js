@@ -29,7 +29,7 @@ const renderCountry = function (data) {
 async function whereAmI(lat, lng) {
   try {
     const res = await fetch(
-      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+      `https://api.bigdatacloud/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
     );
 
     console.log("res", res);
@@ -39,6 +39,7 @@ async function whereAmI(lat, lng) {
     }
 
     const data = await res.json();
+    localStorageData("reverseGeocode", data);
     console.log("data", data);
 
     console.log(`You are in ${data.city}, ${data.countryName}`);
@@ -53,8 +54,10 @@ async function whereAmI(lat, lng) {
 
     const countryData = await countryRespoinse.json();
     console.log("countryData", countryData);
+    localStorageData("countryData", countryData[0]);
     renderCountry(countryData[0]);
   } catch (error) {
+    renderCountry(getLocalStorageData("countryData"));
     console.log(error.message);
   }
 }
@@ -75,33 +78,50 @@ const requestOptions = {
   redirect: "follow",
 };
 
-fetch("https://api.countrystatecity.in/v1/countries/ng", requestOptions)
-  .then((res) => res.json())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+// fetch("https://api.countrystatecity.in/v1/countries/ng", requestOptions)
+//   .then((res) => res.json())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));
 
 
-  window.localStorage.setItem("student", "Fidelis");
-  window.localStorage.setItem("student1", "Aaron");
+//   window.localStorage.setItem("student", "Fidelis");
+//   window.localStorage.setItem("student1", "Aaron");
 
-  const student1 = window.localStorage.getItem("student1");
+//   const student1 = window.localStorage.getItem("student1");
 
-  console.log('student1', student1);
+//   console.log('student1', student1);
   
-  const studentInfo = {
-    name: "Fidelis",
-    age: 25,
-    city:"Ikot Ekpene",
-    state:"Akwa Ibom",
-    isMarried: false
+//   const studentInfo = {
+//     name: "Fidelis",
+//     age: 25,
+//     city:"Ikot Ekpene",
+//     state:"Akwa Ibom",
+//     isMarried: false
+//   }
+
+//   localStorage.setItem("studenInfo", JSON.stringify(studentInfo));
+
+
+//   const studentProfile = localStorage.getItem("studenInfo");
+//   console.log('studentProfile', JSON.parse(studentProfile));
+
+//   localStorage.removeItem("student")
+  
+  // localStorage.clear()
+
+
+  function localStorageData(key, value){
+    if(typeof value === "object"){
+
+      localStorage.setItem(key, JSON.stringify(value));
+    }else{
+      localStorage.setItem(key, value);
+    }
+
   }
 
-  localStorage.setItem("studenInfo", JSON.stringify(studentInfo));
 
-
-  const studentProfile = localStorage.getItem("studenInfo");
-  console.log('studentProfile', JSON.parse(studentProfile));
-
-  localStorage.removeItem("student")
-  
-  localStorage.clear()
+ function getLocalStorageData(key){
+  const data = localStorage.getItem(key);
+  return JSON.parse(data);
+ }
