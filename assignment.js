@@ -79,3 +79,29 @@ fetch("https://api.countrystatecity.in/v1/countries/ng", requestOptions)
   .then((res) => res.json())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
+
+
+  window.localStorage.setItem("student", "Fidelis");
+  window.localStorage.setItem("student1", "Aaron");
+
+  const student1 = window.localStorage.getItem("student1");
+
+  console.log('student1', student1);
+  
+  const studentInfo = {
+    name: "Fidelis",
+    age: 25,
+    city:"Ikot Ekpene",
+    state:"Akwa Ibom",
+    isMarried: false
+  }
+
+  localStorage.setItem("studenInfo", JSON.stringify(studentInfo));
+
+
+  const studentProfile = localStorage.getItem("studenInfo");
+  console.log('studentProfile', JSON.parse(studentProfile));
+
+  localStorage.removeItem("student")
+  
+  localStorage.clear()
