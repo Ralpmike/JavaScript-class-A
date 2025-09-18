@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asynchronous Javascript</title>
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous Javascript</title>
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .products {
+        flex: 3;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 10px;
+      }
+      img {
+        width: 100%;
+      }
 
-  <style>
+      .product {
+        display: flex;
+        flex-direction: column;
+      }
 
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    .products{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 10px;
-    }
-    img{
-      width: 100%;
-    }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .cart{
+        flex: 1;
+        min-width: 230px;
+      }
+    </style>
 
-    .product{
-      display: flex;
-      flex-direction: column;
-      
-    }
-  </style>
-  
-<div class="country">
+    <div class="container">
+      <div class="products"></div>
+      <div>
+        <h2>Your Cart (<span class="quantity">0</span>)</h2>
+        <div class="cart">
 
- 
+        </div>
+      </div>
+    </div>
 
-</div>
-
-<!-- <button id="add_product">Add Product</button> -->
-  <!-- <script src="./index.js" type="module"></script> -->
-  <!-- <script src="./script.js" type="module"></script> -->
-  <script src="./assignment.js"></script>
-</body>
+    <!-- <button id="add_product">Add Product</button> -->
+    <script src="./index.js" type="module"></script>
+    <!-- <script src="./script.js" type="module"></script> -->
+    <!-- <script src="./assignment.js"></script> -->
+  </body>
 </html>

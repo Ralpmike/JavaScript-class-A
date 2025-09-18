@@ -110,8 +110,8 @@ export function getProducts() {
   });
 }
 
-fetch("https://emojihub.yurace.pro/api/random").then((data) => {
-  return data.json();
-}).then((data) => {
-  console.log(data);
-})
+// fetch("https://emojihub.yurace.pro/api/random").then((data) => {
+//   return data.json();
+// }).then((data) => {
+//   console.log(data);
+// })

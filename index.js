@@ -1,9 +1,50 @@
 "use strict";
 import {getProducts} from "./script.js";
 const productsElem = document.querySelector(".products");
-const addProductElem = document.getElementById("add_product");
+const cartElem = document.querySelector(".cart");
+// const addProductElem = document.getElementById("add_product");
 
-export function displayProducts(allproducts) {
+
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+let allProducts = []
+
+console.log('cartItems', cartItems);
+
+productsElem.addEventListener("click", e => {
+  const {localName} = e.target
+  if(localName === "button"){
+    addToCart(e.target.dataset.id)
+    getCartItems()
+  }
+})
+
+function getCartItems() {
+  cartElem.innerHTML = "";
+
+  cartItems.forEach(element => {
+    cartElem.insertAdjacentHTML("beforeend", `
+      <div class="cart-item">
+      <p>${element.name}</p>
+      <p>${element.price}</p>
+      </div>
+    `);
+})
+}
+
+ getCartItems();
+
+function addToCart(id) {
+  const product = allProducts.find(product => product.id === id);
+  const isItemInCart = cartItems.find(item => item.id === id);
+  if(isItemInCart) return
+  cartItems.push(product);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  console.log("cartItems", cartItems);
+}
+
+ function displayProducts(allproducts) {
+
+  
   const products = allproducts.map((product) => {
     return `
      <div class="product" id=${product.id}>
@@ -12,14 +53,14 @@ export function displayProducts(allproducts) {
   <source media="(min-width: 790px)" srcset=${product.image.tablet}>
   <img src=${product.image.mobile}>
 </picture>
-    <button>Add to Cart</button>
+    <button data-id=${product.id} data-name=${product.name}>Add to Cart</button>
     <p>${product.category}</p>
     <p>${product.name}</p>
     <p>${product.price}</p>
   </div>`;
   });
 
-  console.log('products', products);
+  // console.log('products', products);
   
 
   productsElem.innerHTML = products.join("");
@@ -66,14 +107,15 @@ async function getAllProducts() {
   try {
     const response = await fetch("http://localhost:5000/products");
 
-    console.log("response", response);
+    // console.log("response", response);
 
     if (!response.ok) {
       throw new Error("No data");
     }
 
     const data = await response.json();
-    console.log("data", data);
+    // console.log("data", data);
+    allProducts = data
     displayProducts(data);
 
 
@@ -84,6 +126,8 @@ async function getAllProducts() {
 }
 
 getAllProducts();
+
+
 
 
 async function deleteProduct(){
@@ -101,4 +145,4 @@ console.log('error', error);
  }
 }
 
-addProductElem.addEventListener("click", deleteProduct);
+// addProductElem.addEventListener("click", deleteProduct);

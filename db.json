@@ -13,6 +13,7 @@
       "price": 6.5
     },
     {
+      "id": "za3b",
       "image": {
         "thumbnail": "./assets/images/image-creme-brulee-thumbnail.jpg",
         "mobile": "./assets/images/image-creme-brulee-mobile.jpg",
@@ -24,6 +25,7 @@
       "price": 7
     },
     {
+      "id": "ce39",
       "image": {
         "thumbnail": "./assets/images/image-macaron-thumbnail.jpg",
         "mobile": "./assets/images/image-macaron-mobile.jpg",
@@ -35,6 +37,7 @@
       "price": 8
     },
     {
+      "id": "ox3d",
       "image": {
         "thumbnail": "./assets/images/image-tiramisu-thumbnail.jpg",
         "mobile": "./assets/images/image-tiramisu-mobile.jpg",
@@ -46,6 +49,7 @@
       "price": 5.5
     },
     {
+      "id": "vx24",
       "image": {
         "thumbnail": "./assets/images/image-baklava-thumbnail.jpg",
         "mobile": "./assets/images/image-baklava-mobile.jpg",
@@ -57,6 +61,7 @@
       "price": 4
     },
     {
+      "id": "qw8i",
       "image": {
         "thumbnail": "./assets/images/image-meringue-thumbnail.jpg",
         "mobile": "./assets/images/image-meringue-mobile.jpg",
@@ -68,6 +73,7 @@
       "price": 5
     },
     {
+      "id": "yu01",
       "image": {
         "thumbnail": "./assets/images/image-cake-thumbnail.jpg",
         "mobile": "./assets/images/image-cake-mobile.jpg",
@@ -79,6 +85,7 @@
       "price": 4.5
     },
     {
+      "id": "po3t",
       "image": {
         "thumbnail": "./assets/images/image-brownie-thumbnail.jpg",
         "mobile": "./assets/images/image-brownie-mobile.jpg",
@@ -90,6 +97,7 @@
       "price": 4.5
     },
     {
+      "id": "ny6t",
       "image": {
         "thumbnail": "./assets/images/image-panna-cotta-thumbnail.jpg",
         "mobile": "./assets/images/image-panna-cotta-mobile.jpg",
