@@ -10,10 +10,12 @@ let allProducts = [];
 console.log("cartItems", cartItems);
 
 productsElem.addEventListener("click", (e) => {
-  const { localName } = e.target;
-  console.log("localName", localName);
-  if (localName === "button") {
-    addToCart(e.target.dataset.id);
+  const button = e.target.closest("button");
+  console.log("button", button);
+  if(!button) return
+  if (button) {
+    addToCart(e.target.dataset.id, button);
+    
     getCartItems();
   }
 });
@@ -36,7 +38,7 @@ function getCartItems() {
 
 getCartItems();
 
-function addToCart(id) {
+function addToCart(id, btn) {
   const product = allProducts.find((product) => product.id === id);
   const isItemInCart = cartItems.find((item) => item.id === product.id);
   if (isItemInCart) {
@@ -45,7 +47,11 @@ function addToCart(id) {
   cartItems.push({ ...product, quantity: 1 });
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   console.log("cartItems", cartItems);
-  displayProducts();
+  btn.outerHTML = `<button class="item_quantity" data-id=${
+    product.id
+  } data-name=${product.name}><span>-</span>  ${
+    product?.quantity || 1
+  } <span>+</span></button>`;
  
 }
 
@@ -63,7 +69,7 @@ function displayProducts() {
 </picture>
    ${
      !isProductInCart
-       ? `<button data-id=${product.id} data-name=${product.name}>Add to Cart</button>`
+       ? `<button class="add_to_cart" data-id=${product.id} data-name=${product.name}>Add to Cart</button>`
        : `<button class="item_quantity" data-id=${product.id} data-name=${product.name}><span>-</span>  ${product?.quantity || 1} <span>+</span></button>`
    }
     <p>${product.category}</p>
@@ -126,6 +132,11 @@ async function getAllProducts() {
 }
 
 getAllProducts();
+
+// deletProductFromCart(itemId){
+
+
+// }
 
 async function deleteProduct() {
   try {

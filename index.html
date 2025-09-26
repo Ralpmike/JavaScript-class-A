@@ -32,9 +32,39 @@
         display: flex;
         flex-wrap: wrap;
       }
-      .cart{
+      .cart {
         flex: 1;
         min-width: 230px;
+      }
+      .item_quantity, .add_to_cart {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: orangered;
+        border-radius: 2rem;
+        padding: 0.8rem 1rem;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        
+      }
+      
+      .add_to_cart {
+        text-align: center;
+        justify-content: center;
+      }
+      .item_quantity span {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        /* margin: 0 0.5rem; */
+        border-radius: 50%;
+        padding: 5px;
+        background-color: white;
+        color: orangered;
+        outline: none;
+        border: none;
       }
     </style>
 
@@ -42,9 +72,7 @@
       <div class="products"></div>
       <div>
         <h2>Your Cart (<span class="quantity">0</span>)</h2>
-        <div class="cart">
-
-        </div>
+        <div class="cart"></div>
       </div>
     </div>
 

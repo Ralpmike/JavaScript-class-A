@@ -128,21 +128,3 @@ body {
 }
 
 
-.item_quantity{
-  display: flex;
-  align-items: center;
-  background-color: orangered;
-  border-radius: 0.7rem;
-  padding: .8rem 1rem;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.item_quantity span{
-  display: inline-block;
-  margin: 0 .5rem;
-  border-radius: 50%;
-  background-color: white;
-  color: orangered;
-}
